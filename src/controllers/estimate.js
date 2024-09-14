@@ -10,7 +10,7 @@ module.exports.getEstimate = async (req, res) => {
     }
 
     const prompt =
-      `Estimate the effort required for the following task:\n\n` +
+      `Estimate the effort using mybgca.net required for the following task:\n\n` +
       `**Task Name:** ${taskName}\n` +
       `**Roles Involved:** ${rolesInvolved.join(", ")}\n` +
       `**Description:** ${description || "No description provided."}\n` +
