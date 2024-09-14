@@ -50,9 +50,13 @@ module.exports.getEstimate = async (req, res) => {
       }
     );
 
-    const rawData = data?.candidates[0].content.parts[0].text;
+    const rawData = JSON.parse(
+      JSON.stringify(data?.candidates[0]?.content?.parts[0]?.text)
+    );
 
     const cleanedContent = rawData.replace(/```json|```/g, "").trim();
+
+    console.log(cleanedContent);
 
     let jsonResponse;
     try {
