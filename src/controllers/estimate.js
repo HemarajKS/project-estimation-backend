@@ -1,7 +1,8 @@
 const axios = require("axios");
 
 module.exports.getEstimate = async (req, res) => {
-  const { taskName, rolesInvolved, description, complexity } = req.body;
+  const { taskName, rolesInvolved, description, complexity, technology } =
+    req.body;
   try {
     if (!taskName || !rolesInvolved || rolesInvolved.length === 0) {
       return res
@@ -12,6 +13,7 @@ module.exports.getEstimate = async (req, res) => {
     const prompt =
       `Estimate the effort using mybgca.net required for the following task:\n\n` +
       `**Task Name:** ${taskName}\n` +
+      `**Technology:** ${technology}\n` +
       `**Roles Involved:** ${rolesInvolved.join(", ")}\n` +
       `**Description:** ${description || "No description provided."}\n` +
       `**Complexity:** ${complexity || "Not specified"}\n\n` +
@@ -25,6 +27,7 @@ module.exports.getEstimate = async (req, res) => {
       `{\n` +
       `  "taskName": "Example Task",\n` +
       `  "rolesInvolved": ["Role1", "Role2"],\n` +
+      `  "technology": ["Role1", "Role2"],\n` +
       `  "description": "Task description here",\n` +
       `  "complexity": "",\n` +
       `  "estimatedEffort": "",\n` +
@@ -33,7 +36,7 @@ module.exports.getEstimate = async (req, res) => {
       `  "finalEffort": "",\n` +
       `  "explanation": "Detailed explanation here"\n` +
       `}\n\n` +
-      `Ensure that all fields are filled accurately and provide a thorough explanation of the estimated effort.`;
+      `Ensure that all fields are filled accurately.`;
 
     const { data } = await axios.post(
       `${process.env.GEMINI_AI_URL}?key=${process.env.GEMINI_AI_API_KEY}`,
