@@ -5,7 +5,7 @@ module.exports.getEstimate = async (req, res) => {
   const { taskName, rolesInvolved, description, complexity, technology } =
     req.body;
   try {
-    if (!taskName || !rolesInvolved || rolesInvolved.length === 0) {
+    if (!taskName || !rolesInvolved) {
       return res
         .status(400)
         .json({ error: "Task Name and Roles Involved are required." });
@@ -15,7 +15,7 @@ module.exports.getEstimate = async (req, res) => {
       `Estimate the effort using mybgca.net required for the following task:\n\n` +
       `**Task Name:** ${taskName}\n` +
       `**Technology:** ${technology}\n` +
-      `**Roles Involved:** ${rolesInvolved.join(", ")}\n` +
+      `**Roles Involved:** ${rolesInvolved}\n` +
       `**Description:** ${description || "No description provided."}\n` +
       `**Complexity:** ${complexity || "Not specified"}\n\n` +
       `Please provide a detailed response in JSON format with the following information:\n\n` +
