@@ -1,4 +1,5 @@
 const axios = require("axios");
+const { v4: uuidv4 } = require("uuid");
 
 module.exports.getEstimate = async (req, res) => {
   const { taskName, rolesInvolved, description, complexity, technology } =
@@ -70,7 +71,7 @@ module.exports.getEstimate = async (req, res) => {
     }
 
     res.json({
-      response: jsonResponse,
+      response: { _id: uuidv4(), ...jsonResponse },
     });
   } catch (error) {
     console.log(error);
