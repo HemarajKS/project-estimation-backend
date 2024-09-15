@@ -23,12 +23,12 @@ module.exports.getEstimate = async (req, res) => {
       `2. **Total Duration (in hours):** The total number of hours required.\n` +
       `3. **Buffer Time (in hours):** Additional time allocated to handle unforeseen issues or delays.\n` +
       `4. **Final Effort (in hours):** Total effort of time including buffer time.\n` +
-      `5. **Explanation:** A detailed explanation of the effort estimate, including the reasons for the given complexity and any factors that influence the effort required (put it in array as pointwise).\n\n` +
+      `5. **Explanation:** A detailed explanation of the effort estimate, including the reasons for the given complexity and any factors that influence the effort required.\n\n` +
       `**Format your response as a JSON object:**\n\n` +
       `{\n` +
       `  "taskName": "Example Task",\n` +
-      `  "rolesInvolved": ["Role1", "Role2"],\n` +
-      `  "technology": ["Role1", "Role2"],\n` +
+      `  "rolesInvolved": "roles involved",\n` +
+      `  "technology": "technology",\n` +
       `  "description": "Task description here",\n` +
       `  "complexity": "",\n` +
       `  "estimatedEffort": "",\n` +
