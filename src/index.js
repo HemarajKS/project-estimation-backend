@@ -10,7 +10,7 @@ const port = process.env.PORT || 8000;
 app.use(express.json());
 
 const corsOpts = {
-  origin: "*",
+  origin: "https://dapper-hotteok-5f5368.netlify.app",
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
 };
 
