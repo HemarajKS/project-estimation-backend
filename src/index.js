@@ -23,7 +23,7 @@ app.use("*", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Connection successful on port ${port}`);
+  console.log(`Connection successful on port: ${port}`);
 });
 
 module.exports = app;
